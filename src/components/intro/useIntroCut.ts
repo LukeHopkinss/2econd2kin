@@ -10,14 +10,10 @@ export type Cut = {
 
 const PORTRAIT: Cut = {
   mp4: "/video/intro-portrait.mp4",
-  webm: "/video/intro-portrait.webm",
-  poster: "/video/intro-portrait-poster.jpg",
 };
 
 const LANDSCAPE: Cut = {
   mp4: "/video/intro-landscape.mp4",
-  webm: "/video/intro-landscape.webm",
-  poster: "/video/intro-landscape-poster.jpg",
 };
 
 // portrait OR narrow viewport -> mobile cut. Chosen on orientation +

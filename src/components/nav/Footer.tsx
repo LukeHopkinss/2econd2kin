@@ -21,7 +21,7 @@ export function Footer() {
           />
           <button
             type="submit"
-            className="shrink-0 bg-acid px-4 py-3 type-meta text-meta text-ink hover:bg-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hot"
+            className="shrink-0 bg-acid px-4 py-3 type-meta text-meta text-black hover:bg-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hot"
           >
             Join
           </button>
