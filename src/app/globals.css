@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand palette — every neon here is tuned to sit on black.
+     See §3.2 of the build plan: all four accents fail contrast on white,
+     so #ffffff/#000000 are the only valid backgrounds. Never hardcode
+     these hexes in a component — use the utility classes. */
+  --color-hot: #ff00b0; /* primary — titles, links, focus */
+  --color-acid: #f2ff00; /* secondary — badges, sold-out, hover */
+  --color-cyan: #00ffe8; /* tertiary — labels, meta, in-stock */
+  --color-violet: #cc00ff; /* accent — gradients, hover states */
+  --color-paper: #ffffff; /* body copy */
+  --color-ink: #000000; /* canvas */
+
+  /* --font-display/--font-body/--font-mono on the right are next/font's
+     own generated variables (app/fonts.ts), applied via a class on <html>.
+     Named differently from our tokens on purpose: Tailwind auto-generates
+     a `font-{name}` utility for every `--font-*` theme key, so reusing
+     next/font's names here would make our token and next/font's variable
+     shadow each other under the same custom-property name. `@theme inline`
+     resolves these at build time rather than leaving a runtime var()
+     reference, which is what next/font's own Tailwind v4 docs recommend. */
+  --font-antonio: var(--font-display), "Arial Narrow", sans-serif;
+  --font-public-sans: var(--font-body), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --text-display: clamp(2.75rem, 12vw, 9rem);
+  --text-h1: clamp(2rem, 6vw, 4rem);
+  --text-body: clamp(1rem, 1.1vw, 1.125rem);
+  --text-meta: 0.75rem;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-public-sans);
+}
+
+/* Composite type treatments, authored as real Tailwind utilities (not a
+   plain unlayered class) so normal utility override rules still apply —
+   e.g. `type-display leading-none` can actually override the line-height.
+   A plain `.type-display { ... }` rule here would sit outside every
+   @layer and beat all Tailwind utilities unconditionally regardless of
+   source order. */
+@utility type-display {
+  font-family: var(--font-antonio);
+  font-style: normal; /* Antonio has no italic — never let one synthesize */
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+@utility type-meta {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
