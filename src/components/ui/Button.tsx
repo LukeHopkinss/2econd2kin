@@ -3,8 +3,10 @@ import type { MouseEventHandler, ReactNode } from "react";
 
 type Variant = "solid" | "outline" | "ghost";
 
+// text-paper (black) reads better against hot/violet than white does —
+// see Badge's same fix.
 const variantClasses: Record<Variant, string> = {
-  solid: "bg-hot text-ink hover:bg-violet",
+  solid: "bg-hot text-paper hover:bg-violet",
   outline: "border border-paper text-paper hover:border-hot hover:text-hot",
   ghost: "text-paper hover:text-hot",
 };

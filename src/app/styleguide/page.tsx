@@ -25,7 +25,7 @@ export default function StyleguidePage() {
       </Section>
 
       <Section>
-        <h2 className="type-display text-h1 text-cyan">Colors</h2>
+        <h2 className="type-display text-h1 text-paper">Colors</h2>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
           {swatches.map((s) => (
             <div key={s.name}>
@@ -37,7 +37,7 @@ export default function StyleguidePage() {
       </Section>
 
       <Section>
-        <h2 className="type-display text-h1 text-cyan">Type</h2>
+        <h2 className="type-display text-h1 text-paper">Type</h2>
         <p className="type-display text-display text-hot">Display</p>
         <p className="mt-4 type-display text-h1">Heading 1</p>
         <p className="mt-4 max-w-[65ch] text-body">
@@ -48,7 +48,7 @@ export default function StyleguidePage() {
       </Section>
 
       <Section>
-        <h2 className="type-display text-h1 text-cyan">Buttons</h2>
+        <h2 className="type-display text-h1 text-paper">Buttons</h2>
         <div className="mt-8 flex flex-wrap gap-4">
           <Button href="/shop" variant="solid">
             Shop
@@ -63,7 +63,7 @@ export default function StyleguidePage() {
       </Section>
 
       <Section>
-        <h2 className="type-display text-h1 text-cyan">Badges</h2>
+        <h2 className="type-display text-h1 text-paper">Badges</h2>
         <div className="mt-8 flex flex-wrap gap-4">
           <Badge tone="cyan">In Stock</Badge>
           <Badge tone="acid">Sold Out</Badge>

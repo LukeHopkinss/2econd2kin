@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
+import { SwingingImage } from "@/components/shop/SwingingImage";
 import { getProducts } from "@/lib/shop/client";
 
 export const metadata: Metadata = {
@@ -24,17 +24,13 @@ export default async function ShopPage() {
             const image = product.images[0];
             return (
               <Link key={product.handle} href={`/shop/${product.handle}`} className="group block">
-                <div className="relative aspect-[3/4] w-full bg-paper/5">
-                  {image && (
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                      className="object-cover"
-                    />
-                  )}
-                </div>
+                {image && (
+                  <SwingingImage
+                    src={image.src}
+                    alt={image.alt}
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                  />
+                )}
                 <p className="mt-3 type-meta text-meta text-paper group-hover:text-hot">
                   {product.title}
                 </p>

@@ -53,3 +53,14 @@ export function useIntroGate(): boolean {
 export function markIntroSeen() {
   window.sessionStorage.setItem(SESSION_KEY, "1");
 }
+
+// Call once the overlay has fully finished exiting (IntroGateway's
+// onComplete) — not sooner, or the mid-fade getSnapshot() calls would
+// stop returning the latched true and cut the animation short. Without
+// this reset, latchedShow would stay true forever, so navigating away
+// from "/" and back (a client-side remount, not a full page reload)
+// would replay the intro even though sessionStorage already says it's
+// been seen.
+export function resetIntroLatch() {
+  latchedShow = false;
+}

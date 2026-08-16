@@ -9,7 +9,7 @@ export default function Home() {
       <Section className="flex min-h-[80vh] flex-col justify-center">
         <h1 className="type-display text-display text-hot">2ECOND2KIN</h1>
         <p className="mt-6 max-w-[45ch] text-body text-paper">
-          Clothing as a layer worn against the body.
+          Not just a magazine, it&apos;s a second skin.
         </p>
       </Section>
     </>

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Nav />
           <main className="flex-1">{children}</main>
           <Footer />
-          <CartSlideOver />
+          <CartSlideOver shopConfigured={Boolean(process.env.STRIPE_SECRET_KEY)} />
         </CartUiProvider>
       </body>
     </html>

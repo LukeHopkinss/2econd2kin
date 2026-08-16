@@ -2,20 +2,43 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart, removeFromCart, setCartQuantity } from "@/lib/cart/useCart";
 import { useCartUi } from "./CartUiContext";
-import { isShopConfigured } from "@/lib/shop/client";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-export function CartSlideOver() {
+// shopConfigured comes from the server (layout.tsx reads
+// process.env.STRIPE_SECRET_KEY) rather than being checked in this
+// module directly — a "use client" component's bundle has no server
+// env, so a secret-backed check here would always read as false.
+export function CartSlideOver({ shopConfigured }: { shopConfigured: boolean }) {
   const { isOpen, close } = useCartUi();
   const items = useCart();
   const panelRef = useRef<HTMLDivElement>(null);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const subtotal = items.reduce((sum, item) => sum + Number(item.price.amount) * item.quantity, 0);
   const currencyCode = items[0]?.price.currencyCode ?? "USD";
+
+  async function handleCheckout() {
+    setIsCheckingOut(true);
+    setCheckoutError(null);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items }),
+      });
+      if (!res.ok) throw new Error("Checkout request failed");
+      const data = (await res.json()) as { url: string };
+      window.location.href = data.url;
+    } catch {
+      setCheckoutError("Checkout failed — please try again.");
+      setIsCheckingOut(false);
+    }
+  }
 
   useEffect(() => {
     (window as unknown as { __cartIsOpen: boolean }).__cartIsOpen = isOpen;
@@ -157,12 +180,20 @@ export function CartSlideOver() {
                   {currencyCode} {subtotal.toFixed(2)}
                 </span>
               </div>
+              {checkoutError && (
+                <p className="mb-2 type-meta text-meta text-hot">{checkoutError}</p>
+              )}
               <button
                 type="button"
-                disabled={items.length === 0 || !isShopConfigured}
-                className="mt-4 w-full bg-hot px-6 py-3 type-meta text-meta text-ink transition-colors hover:bg-violet disabled:cursor-not-allowed disabled:bg-paper/20 disabled:text-paper/50"
+                onClick={handleCheckout}
+                disabled={items.length === 0 || !shopConfigured || isCheckingOut}
+                className="mt-4 w-full bg-hot px-6 py-3 type-meta text-meta text-paper transition-colors hover:bg-violet disabled:cursor-not-allowed disabled:bg-paper/20 disabled:text-paper/50"
               >
-                {isShopConfigured ? "Checkout" : "Checkout (store not connected yet)"}
+                {!shopConfigured
+                  ? "Checkout (store not connected yet)"
+                  : isCheckingOut
+                    ? "Redirecting…"
+                    : "Checkout"}
               </button>
             </div>
           </motion.div>

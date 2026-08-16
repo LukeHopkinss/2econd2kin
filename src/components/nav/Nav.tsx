@@ -5,11 +5,18 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart/useCart";
 import { useCartUi } from "@/components/cart/CartUiContext";
 
+// Each link hovers to a different brand color rather than sharing one
+// hover state — the palette (hot/acid/cyan/violet) has exactly four
+// colors, which conveniently matches the four nav links. Applied as a
+// background chip with black text, not colored text on white: acid and
+// cyan as raw foreground text on a white canvas are nearly unreadable
+// (see globals.css's palette comment) — a filled chip keeps all four
+// colors distinct and legible instead of quietly dropping two of them.
 const links = [
-  { href: "/lookbook", label: "Lookbook" },
-  { href: "/shop", label: "Shop" },
-  { href: "/behind-the-scenes", label: "Behind the Scenes" },
-  { href: "/about", label: "About" },
+  { href: "/lookbook", label: "Lookbook", hoverClass: "hover:bg-hot" },
+  { href: "/behind-the-scenes", label: "Behind the Scenes", hoverClass: "hover:bg-violet" },
+  { href: "/about", label: "About", hoverClass: "hover:bg-cyan" },
+  { href: "/shop", label: "Shop", hoverClass: "hover:bg-acid" },
 ];
 
 const focusRing =
@@ -36,7 +43,7 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className={`type-meta text-meta text-paper transition-colors hover:text-hot ${focusRing}`}
+              className={`inline-block -mx-1 px-1 type-meta text-meta text-paper transition-colors hover:text-paper ${link.hoverClass} ${focusRing}`}
             >
               {link.label}
             </Link>
@@ -74,7 +81,7 @@ export function Nav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`type-meta text-meta text-paper hover:text-hot ${focusRing}`}
+              className={`inline-block -mx-1 px-1 type-meta text-meta text-paper transition-colors hover:text-paper ${link.hoverClass} ${focusRing}`}
             >
               {link.label}
             </Link>
