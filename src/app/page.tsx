@@ -16,10 +16,10 @@ export default function Home() {
       <IntroGateway />
 
       <Section className="flex min-h-[80vh] flex-col justify-center">
-        <h1 className="type-display text-display text-hot md:whitespace-nowrap md:text-[clamp(1.5rem,6vw,5rem)]">
+        <h1 className="type-display text-display text-hot md:whitespace-nowrap md:text-[clamp(3rem,11vw,9rem)]">
           2ECOND2KIN
         </h1>
-        <p className="mt-10 max-w-[45ch] text-body text-paper font-bold">
+        <p className="mt-8 type-meta text-meta text-paper/60">
           Not just a magazine, it&apos;s a second skin.
         </p>
       </Section>
