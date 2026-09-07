@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "2econd2kin — clothing as a layer worn against the body.";
+export const alt = "2econd2kin Magazine — a culture publication built around creativity, curiosity, individuality, and community.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const TITLE = "2ECOND2KIN";
-const TAGLINE = "Clothing as a layer worn against the body.";
+const TITLE = "2ECOND2KIN MAGAZINE";
+const TAGLINE = "a culture publication built around creativity, curiosity, individuality, and community.";
 
 // next/og's ImageResponse (satori) doesn't synthesize font weights — the
 // bundled default font only has a regular weight, so `fontWeight: 700`

@@ -9,10 +9,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://2econd2kin.com"),
   title: {
-    default: "2econd2kin",
-    template: "%s — 2econd2kin",
+    default: "2econd2kin Magazine",
+    template: "%s — 2econd2kin Magazine",
   },
-  description: "2econd2kin — clothing as a layer worn against the body.",
+  description: "2econd2kin Magazine — clothing as a layer worn against the body.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

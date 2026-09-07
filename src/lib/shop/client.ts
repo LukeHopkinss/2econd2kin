@@ -14,7 +14,7 @@ const ISSUE_PILOT: Product = {
   description: "The debut issue. Triannual, from wherever we're standing.",
   images: [
     {
-      src: "https://placehold.co/800x1000/ff00b0/ffffff.png?text=ISSUE+01",
+      src: "/shop/issue-01-cover.png",
       alt: "Issue 01, 'Pilot' — cover",
       under: "https://placehold.co/800x1000/00ffe8/000000.png?text=BACK+COVER",
       underAlt: "Issue 01, 'Pilot' — back cover",

@@ -36,7 +36,7 @@ export function Nav() {
           className={`type-display text-2xl text-hot ${focusRing}`}
           onClick={() => setOpen(false)}
         >
-          2ECOND2KIN
+          2ECOND2KIN MAGAZINE
         </Link>
         <nav aria-label="Primary" className="hidden gap-8 md:flex">
           {links.map((link) => (
