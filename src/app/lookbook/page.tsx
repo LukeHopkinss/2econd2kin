@@ -14,8 +14,8 @@ export default function LookbookPage() {
     <>
       <div className="relative h-[70vh] min-h-[420px] w-full overflow-hidden md:h-[90vh]">
         <Image
-          src="/lookbook/hero.jpg"
-          alt="FaurY climbing a fire escape ladder against a graffiti wall in Soho"
+          src="/2econd-drive/lookbook-main.JPG"
+          alt="FaurY perched on a fire hydrant against a graffiti wall in Soho"
           fill
           priority
           sizes="100vw"
