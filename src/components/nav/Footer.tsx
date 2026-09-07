@@ -8,24 +8,6 @@ export function Footer() {
             &copy; {new Date().getFullYear()} 2econd2kin Magazine
           </p>
         </div>
-        <form className="flex w-full max-w-sm items-center gap-2 md:w-auto">
-          <label htmlFor="newsletter-email" className="sr-only">
-            Email address
-          </label>
-          <input
-            id="newsletter-email"
-            type="email"
-            required
-            placeholder="EMAIL"
-            className="w-full border border-paper/40 bg-transparent px-4 py-3 type-meta text-meta text-paper placeholder:text-paper/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-hot"
-          />
-          <button
-            type="submit"
-            className="shrink-0 bg-acid px-4 py-3 type-meta text-meta text-black hover:bg-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hot"
-          >
-            Join
-          </button>
-        </form>
       </div>
     </footer>
   );

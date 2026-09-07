@@ -14,7 +14,6 @@ import { useCartUi } from "@/components/cart/CartUiContext";
 // colors distinct and legible instead of quietly dropping two of them.
 const links = [
   { href: "/lookbook", label: "Lookbook", hoverClass: "hover:bg-hot" },
-  { href: "/behind-the-scenes", label: "Behind the Scenes", hoverClass: "hover:bg-violet" },
   { href: "/about", label: "About", hoverClass: "hover:bg-cyan" },
   { href: "/shop", label: "Shop", hoverClass: "hover:bg-acid" },
 ];

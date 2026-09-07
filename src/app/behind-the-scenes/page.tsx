@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
 import { bts } from "@/content/bts";
 
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
 // adaptively streamed via Mux/Cloudinary, not raw MP4s, once real footage
 // exists.
 export default function BehindTheScenesPage() {
+  // Hidden for this iteration of the site — not linked in the nav, and
+  // the route itself 404s so a guessed URL doesn't leak the page either.
+  notFound();
+
   return (
     <Section>
       <h1 className="type-display text-h1 text-hot">Behind the Scenes</h1>
