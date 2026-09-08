@@ -80,8 +80,8 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:h-full">
               <Image
-                src="/2econd-drive/MISC(1).jpg"
-                alt="Two team members in 'Founder' and 'Social Media Manager' 2econd2kin tees in a brownstone doorway"
+                src="/2econd-drive/MISC(11).jpg"
+                alt="Two people in 2econd2kin tees looking at camera"
                 fill
                 sizes="(min-width: 768px) 30vw, 80vw"
                 className="object-cover"
@@ -119,7 +119,7 @@ export default function AboutPage() {
         <Badge tone="violet">Founder &amp; Creative Director</Badge>
         <h2 className="mt-4 type-display text-h1 text-hot">Camila Peña Del Real</h2>
         <div className="mt-10 grid gap-10 md:grid-cols-[1fr_1.3fr] md:gap-14">
-          <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:h-full">
+          <div className="relative aspect-[2/3] w-full overflow-hidden md:self-start">
             <Image
               src="/about/founder.jpg"
               alt="Camila Peña Del Real, Founder and Creative Director of 2econd2kin Magazine"
@@ -128,7 +128,7 @@ export default function AboutPage() {
               className="object-cover"
             />
           </div>
-          <div className="space-y-5 text-body text-paper">
+          <div className="flex flex-col justify-between gap-6 text-body text-paper md:text-xl lg:text-2xl">
             <p>
               Camila Peña Del Real is the Founder and Creative Director of 2econd2kin Magazine.
             </p>
@@ -152,6 +152,9 @@ export default function AboutPage() {
         <p className="type-meta text-meta text-paper/60">
           Biannual: two physical issues a year, with digital stories and features in
           between.
+        </p>
+        <p className="type-meta text-meta text-paper/60">
+          Between major issues, the digital world of 2econd2kin Magazine will continue through stories, interviews, creative features, community content, events, collaborations, mini releases, and other original digital content.
         </p>
       </Section>
     </>
