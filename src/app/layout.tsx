@@ -4,7 +4,6 @@ import { Nav } from "@/components/nav/Nav";
 import { Footer } from "@/components/nav/Footer";
 import { CartUiProvider } from "@/components/cart/CartUiContext";
 import { CartSlideOver } from "@/components/cart/CartSlideOver";
-import { LaunchGate } from "@/components/gate/LaunchGate";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,14 +22,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${antonio.variable} ${publicSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ink text-paper">
-        <LaunchGate>
-          <CartUiProvider>
-            <Nav />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <CartSlideOver />
-          </CartUiProvider>
-        </LaunchGate>
+        <CartUiProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CartSlideOver />
+        </CartUiProvider>
       </body>
     </html>
   );
