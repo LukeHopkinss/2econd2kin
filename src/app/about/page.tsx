@@ -153,7 +153,7 @@ export default function AboutPage() {
           Biannual: two physical issues a year, with digital stories and features in
           between.
         </p>
-        <p className="type-meta text-meta text-paper/60">
+        <p className="mt-5 type-meta text-meta text-paper/60">
           Between major issues, the digital world of 2econd2kin Magazine will continue through stories, interviews, creative features, community content, events, collaborations, mini releases, and other original digital content.
         </p>
       </Section>
